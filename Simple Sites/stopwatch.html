@@ -1,0 +1,78 @@
+  
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p class="stopwatch">0:00:00.00</p>
+      <button type="button" id="start">Start</button>
+      <button type="button" id="stop" disabled>Stop</button>
+      <button type="button" id="reset" disabled>Reset</button>
+    </div>
+    <script>
+
+      let watch = document.querySelector('.stopwatch');
+      let start = document.querySelector('#start');
+      let stop = document.querySelector('#stop');
+      let reset = document.querySelector('#reset');
+      let savedTime = 0;
+
+      start.addEventListener("click", function () {
+        let startTime = Date.now() - savedTime;
+        const runWatch = setInterval(updateWatch, 10, startTime);
+        start.disabled = true;
+        
+        stop.disabled = false;
+        stop.addEventListener("click", function () {
+          savedTime = Date.now() - startTime;
+          clearInterval(runWatch);
+          stop.disabled = true;
+          start.disabled = false;
+        });
+
+        reset.disabled = false;
+        reset.addEventListener("click", function () {
+          clearInterval(runWatch);
+          watch.textContent = "0:00:00.00";
+          savedTime = 0;
+          stop.disabled = true;
+          reset.disabled = true;
+          start.disabled = false;
+        });
+      });
+
+      function updateWatch(startTime) {
+        let remainingTime = Math.floor((Date.now() - startTime) / 10);
+        let hours = Math.floor(remainingTime / 360000);
+        remainingTime -= hours * 360000;
+        
+        let mins = Math.floor(remainingTime / 6000);
+        remainingTime -= mins * 6000;
+        if (mins < 10) {
+          mins = '0' + mins;
+        }
+        
+        let secs = Math.floor(remainingTime / 100);
+        remainingTime -= secs * 100;
+        if (secs < 10) {
+          secs = '0' + secs;
+        }
+
+        let hunds = remainingTime;
+        if (hunds < 10) {
+          hunds = '0' + hunds;
+        }
+        
+        watch.textContent = `${hours}:${mins}:${secs}.${hunds}`;
+      }
+    </script>
+  </body>
+</html>

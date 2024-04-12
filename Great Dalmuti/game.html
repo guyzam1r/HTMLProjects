@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Card Game</title>
+		<link rel="stylesheet" href="game.css">
+		<script src="game.js" async></script>
+	</head>
+	<body>
+		<div class="buttons">
+			<button class="deal-button">Deal</button>
+			<button class="sort-button" disabled>Sort</button>
+			<button class="play-button" disabled>Play</button>
+		</div>
+		<div class="playing-area">
+			<div class="pass-container">
+				<p class="pass">PASS</p>
+			</div>
+			<div class="results">
+				<h1 class="results-header">Results</h1>
+				<table class="rankings">
+					<tr class="rankings1">
+						<td class="rankings-place">1st</td>
+						<td class="rankings-name">Player 1</td>
+					</tr>
+					<tr class="rankings2">
+						<td class="rankings-place">2nd</td>
+						<td class="rankings-name">Player 2</td>
+					</tr>
+					<tr class="rankings3">
+						<td class="rankings-place">3rd</td>
+						<td class="rankings-name">Player 3</td>
+					</tr>
+					<tr class="rankings4">
+						<td class="rankings-place">4th</td>
+						<td class="rankings-name">Player 4</td>
+					</tr>
+					<tr class="rankings5">
+						<td class="rankings-place">5th</td>
+						<td class="rankings-name">Player 5</td>
+					</tr>
+					<tr class="rankings6">
+						<td class="rankings-place">6th</td>
+						<td class="rankings-name">Player 6</td>
+					</tr>
+					<tr class="rankings7">
+						<td class="rankings-place">7th</td>
+						<td class="rankings-name">Player 7</td>
+					</tr>
+					<tr class="rankings8">
+						<td class="rankings-place">8th</td>
+						<td class="rankings-name">Player 8</td>
+					</tr>
+				</table>
+				<div class="results-buttons">
+					<button class="new-game-button">New Game</button>
+					<a class="quit-button">Quit</a>
+				</div>
+			</div>
+			<div class="center">
+				<div class="center-table">Center</div>
+				<div class="game-info">
+					<h1 class="game-info-title">Info</h1>
+					<p class="currently-on-header">Currently On:</p>
+					<p class="currently-on"></p>
+					<p class="last-player-header">Last Player:</p>
+					<p class="last-player"></p>
+					<p class="last-play-header">Last Play:</p>
+					<p class="last-play"></p>
+				</div>
+			</div>
+			<div class="discard-pile">Discard</div>
+			<div class="player-hand" id="p1">
+				<h1 class="player-name">P1</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p2">
+				<h1 class="player-name">P2</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p3">
+				<h1 class="player-name">P3</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p4">
+				<h1 class="player-name">P4</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p5">
+				<h1 class="player-name">P5</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p6">
+				<h1 class="player-name">P6</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p7">
+				<h1 class="player-name">P7</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="player-hand" id="p8">
+				<h1 class="player-name">P8</h1>
+				<p class="player-done">DONE!</p>
+			</div>
+			<div class="card-container" id="A1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="AS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="B1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="2S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="B2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="2S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="C1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="3S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="C2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="3S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="C3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="3S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="D1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="4S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="D2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="4S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="D3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="4S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="D4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="4S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="E1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="5S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="E2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="5S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="E3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="5S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="E4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="5S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="E5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="5S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="F6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="6S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>		
+			<div class="card-container" id="G5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="G7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="7S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="H8">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="8S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I8">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="I9">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="9S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="J1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="J3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="J4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J8">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J9">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="J10">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="10S.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>>
+				</div>
+			</div>
+			<div class="card-container" id="K1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K8">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K9">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K10">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="K11">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="JS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L3">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L4">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L5">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L6">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L7">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L8">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L9">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L10">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L11">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="L12">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="QS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="M1">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="KS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+			<div class="card-container" id="M2">
+				<div class="card">
+					<div class="card-front">
+						<img class="card-img" src="KS.png">
+					</div>
+					<div class="card-back">
+						<img class="card-img" src="purple_back.png">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="player-tools">
+			<button class="play-selected-button" disabled>Play</button>
+			<button class="pass-button" disabled>Pass</button>
+		</div>
+	</body>
+</html>

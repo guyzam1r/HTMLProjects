@@ -1,0 +1,36 @@
+.container {
+	position: relative;
+	background-color: lightgreen;
+	border-style: solid;
+	border-color: green;
+	border-width: 3px;
+	width: 500px;
+	height: 500px;
+}
+
+.a {
+	width: 200px;
+	height: 100px;
+	background-color: blue;
+	position: absolute;
+	left: 200px;
+	top: 200px;
+	transform-origin: 0% 0%;
+	/*transform: translate(100px) rotateZ(30deg);*/
+	transform: rotateZ(0deg);
+}
+
+.b {
+	width: 100px;
+	height: 50px;
+	background-color: yellow;
+	color: black;
+	font-size: 30px;
+	position: absolute;
+	/*left: 200px;
+	top: 200px;*/
+	left: calc(200px + ((200px/2 - 100px/2) * 1) - ((100px/2 - 50px/2) * 0));
+	top: calc(200px + (200px/2 - 100px/2) * 0 + (100px/2 - 50px/2) * 1);
+	transform-origin: 0% 0%;
+	transform: rotateZ(0deg);
+}

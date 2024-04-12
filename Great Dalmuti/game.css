@@ -1,0 +1,198 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	/*overflow: hidden;*/
+	background-color: #d8a8ff;
+}
+
+.deal-button, .sort-button, .play-button, .play-selected-button, .pass-button {
+	font-size: 30px;
+	height: 50px;
+	width: 130px;
+	cursor: pointer;
+	margin: 10px;
+	padding: 0;
+}
+
+.playing-area {
+	height: 900px;
+	width: 1200px;
+	background-color: lightblue;
+	margin: auto;
+	border-style: solid;
+	border-color: darkblue;
+	border-width: 10px;
+	position: relative;
+	top: 0px;
+	overflow: hidden;
+}
+
+.pass-container {
+	position: absolute;
+	z-index: 1000;
+	transform-origin: 0% 0%;
+	visibility: hidden;
+}
+
+.pass {
+	margin: 0px;
+	color: red;
+	font-size: 50px;
+}
+
+.results {
+	position: absolute;
+	height: 500px;
+	width: 400px;
+	background-color: tan;
+	border-radius: 30px;
+	z-index: -1;
+}
+
+.results-header {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.rankings {
+	width: 100%;
+	font-size: 30px;
+	visibility: hidden;
+}
+
+.rankings-place {
+	width: 30%;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+.rankings-name {
+	padding-bottom: 5px;
+}
+
+.results-buttons {
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+	margin-top: 10px;
+	height: 50px;
+	width: 75%;
+}
+
+.new-game-button, .quit-button {
+	all: unset;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 40%;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	border-radius: 5px;
+	font-size: 20px;
+	background-color: lightgreen;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.quit-buttom {
+	margin-right: 0;
+}
+
+.center {
+	position: absolute;
+	height: 160px;
+	width: 350px;
+	background-color: grey;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+	display: grid;
+	grid-template-columns: 66% 34%;
+}
+
+.game-info-title {
+	all: inherit;
+}
+
+.game-info p {
+	font-size: 20px;
+	margin: 0;
+	height: 20px;
+}
+
+.discard-pile {
+	position: absolute;
+	height: 160px;
+	width: 150px;
+	background-color: grey;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+}
+
+.player-hand {
+	position: absolute;
+	transform-origin: 0% 0%;
+	width: 250px;
+	height: 150px;
+	background-color: green;
+	text-align: center;
+	color: white;
+	top: -200px;
+	left: -200px;
+}
+
+.player-name {
+	margin: 0px;
+	font-size: 30px;
+}
+
+.player-done {
+	margin: 30px;
+	font-size: 40px;
+	visibility: hidden;
+}
+
+.card-container {
+	transform-origin: 0% 0%;
+	width: 69px;
+	height: 105px;
+	background-color: transparent;
+	perspective: 300px;
+	margin: 0;
+	position: absolute;
+	top: -200px;
+	left: -200px;
+	transition: all 0.4s;
+}
+
+.card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-style: solid;
+	border-color: grey;
+	border-width: 2px;
+	border-radius: 9px;
+	transition: all 0.4s;
+	transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	transform: rotateY(180deg);
+}
+
+.card-img {
+	width: 100%;
+	height: 100%;
+}
